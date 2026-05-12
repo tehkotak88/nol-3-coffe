@@ -8,9 +8,7 @@ import {
   Instagram, 
   MapPin, 
   Phone, 
-  Coffee, 
   ChevronRight, 
-  Utensils, 
   Clock, 
   Menu as MenuIcon, 
   X 
