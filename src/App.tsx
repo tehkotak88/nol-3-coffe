@@ -218,42 +218,42 @@ const MENU_DATA: MenuItem[] = [
     name: 'Strawberry Tea',
     price: '20k',
     description: 'Teh rasa stroberi dengan aroma yang harum.',
-    image: 'https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?auto=format&fit=crop&q=80&w=400',
+    image: '/menu/strowberry tea.png',
     category: 'non-coffee'
   },
   {
     name: 'Lychee Kult',
     price: '20k',
     description: 'Perpaduan rasa leci dan Yakult yang segar.',
-    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=400',
+    image: '/menu/lychee kult.png',
     category: 'non-coffee'
   },
   {
     name: 'Passion Fruit',
     price: '20k',
     description: 'Minuman markisa yang asam dan menyegarkan.',
-    image: 'https://images.unsplash.com/photo-1595981267035-7b04ca84a81d?auto=format&fit=crop&q=80&w=400',
+    image: '/menu/passion fruit.png',
     category: 'non-coffee'
   },
   {
     name: 'Mojito Mint',
     price: '20k',
     description: 'Soda lemon dengan daun mint segar.',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=400',
+    image: '/menu/mojito mint.png',
     category: 'non-coffee'
   },
   {
     name: 'Strawberry Lemonade',
     price: '20k',
     description: 'Campuran soda, lemon, dan stroberi yang segar.',
-    image: 'https://images.unsplash.com/photo-1621263764491-7294435889fc?auto=format&fit=crop&q=80&w=400',
+    image: '/menu/stroberry lemonade.png',
     category: 'non-coffee'
   },
   {
     name: 'Crimson Blue',
     price: '20k',
     description: 'Mocktail biru eksotis yang mempesona.',
-    image: 'https://images.unsplash.com/photo-1536935338213-d2c1248842c3?auto=format&fit=crop&q=80&w=400',
+    image: '/menu/Crimson Blue.png',
     category: 'non-coffee'
   },
 
