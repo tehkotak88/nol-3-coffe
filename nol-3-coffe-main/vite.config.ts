@@ -7,38 +7,29 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
 
-  // Automatically move images from "Foto Produk Noltiga" to "public/menu" if they exist
-  const oldDir = path.resolve(__dirname, 'Foto Produk Noltiga');
-  const newDir = path.resolve(__dirname, 'public/menu');
-  
-  if (fs.existsSync(oldDir)) {
-    if (!fs.existsSync(newDir)) {
-      fs.mkdirSync(newDir, { recursive: true });
-    }
-    const files = fs.readdirSync(oldDir);
-    files.forEach(file => {
-      const oldPath = path.join(oldDir, file);
-      const newPath = path.join(newDir, file);
-      if (fs.lstatSync(oldPath).isFile()) {
-        try {
-          fs.renameSync(oldPath, newPath);
-        } catch (err) {
-          // If rename fails (e.g. across drives), try copy + unlink
-          fs.copyFileSync(oldPath, newPath);
-          fs.unlinkSync(oldPath);
-        }
-      }
-    });
-    // Optional: remove old dir if empty
-    if (fs.readdirSync(oldDir).length === 0) {
-      fs.rmdirSync(oldDir);
-    }
-  }
-
   return {
     plugins: [
       react(), 
       tailwindcss(),
+      {
+        name: 'serve-menu-images',
+        configureServer(server) {
+          server.middlewares.use('/menu', (req, res, next) => {
+            let fileName = decodeURIComponent(req.url || '').split('?')[0];
+            if (fileName.startsWith('/')) fileName = fileName.slice(1);
+            const filePath = path.join(__dirname, 'Foto Produk Noltiga', fileName);
+            
+            if (fs.existsSync(filePath) && fs.lstatSync(filePath).isFile()) {
+              const ext = path.extname(filePath).toLowerCase();
+              const contentType = ext === '.png' ? 'image/png' : ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' : 'application/octet-stream';
+              res.setHeader('Content-Type', contentType);
+              res.end(fs.readFileSync(filePath));
+            } else {
+              next();
+            }
+          });
+        }
+      }
     ],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
