@@ -740,9 +740,27 @@ export default function App() {
                 <motion.div 
                    initial={{ rotate: -5 }}
                    whileInView={{ rotate: 0 }}
-                   className="relative aspect-square rounded-[4rem] overflow-hidden border-8 border-brand-dark/20 shadow-2xl"
+                   className="relative aspect-square rounded-[4rem] overflow-hidden border-8 border-brand-dark/20 shadow-2xl bg-brand-dark group"
                 >
-                  <img src="https://images.unsplash.com/photo-1497933321110-3844f23b7b4d?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover" alt="Ambience" />
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.753549298642!2d119.44435847499646!3d-5.152873494819779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbefd0061e8784d%3A0x6730e7966774e1d1!2sJl.%20Anggrek%20Raya%20No.22%2C%20Paropo%2C%20Kec.%20Panakkukang%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090231!5e0!3m2!1sen!2sid!4v1715600000000!5m2!1sen!2sid" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, filter: 'grayscale(1) invert(0.9) contrast(1.2)' }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Nol3 Coffee Makassar Location"
+                  ></iframe>
+                  <div className="absolute inset-0 bg-accent/10 pointer-events-none group-hover:bg-transparent transition-colors duration-500" />
+                  <a 
+                    href="https://maps.app.goo.gl/B9p9z9z9z9z9z9z9" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-accent text-brand-dark rounded-full font-black uppercase tracking-widest text-[10px] opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-2xl hover:scale-110"
+                  >
+                    Buka di Maps
+                  </a>
                 </motion.div>
                 <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-accent rounded-full p-8 flex flex-col justify-center items-center text-center rotate-12 animate-float">
                    <p className="text-brand-dark font-display font-black text-4xl leading-none">10/10</p>
