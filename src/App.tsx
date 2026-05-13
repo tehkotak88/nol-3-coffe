@@ -535,39 +535,39 @@ export default function App() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 40, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="w-full max-w-4xl bg-brand-gray rounded-[2.5rem] md:rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8)] relative"
+              className="w-full max-w-4xl max-h-[90vh] md:max-h-none overflow-y-auto md:overflow-hidden bg-brand-gray rounded-[2.5rem] md:rounded-[4rem] border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8)] relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button 
                 onClick={() => setSelectedItem(null)}
-                className="absolute top-8 right-8 z-20 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-brand-dark transition-all duration-300"
+                className="absolute top-4 right-4 md:top-8 md:right-8 z-30 w-10 h-10 md:w-12 md:h-12 bg-brand-dark/50 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-accent hover:text-brand-dark transition-all duration-300"
               >
                 <X size={20} />
               </button>
 
               <div className="grid md:grid-cols-2">
-                <div className="relative aspect-square md:aspect-auto">
+                <div className="relative aspect-square md:aspect-auto h-[300px] md:h-auto">
                   <img src={selectedItem.image} alt={selectedItem.name} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-gray/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-gray to-transparent md:bg-gradient-to-r md:from-transparent md:to-brand-gray/20" />
                 </div>
                 
-                <div className="p-10 md:p-16 flex flex-col justify-center">
-                  <div className="mb-10">
-                    <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+                <div className="p-8 md:p-16 flex flex-col justify-center">
+                  <div className="mb-6 md:mb-10">
+                    <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-6 md:mb-8">
                       {selectedItem.category}
                     </span>
-                    <h3 className="text-5xl md:text-7xl font-display font-bold text-white tracking-tighter uppercase italic leading-none mb-6">
+                    <h3 className="text-4xl md:text-7xl font-display font-bold text-white tracking-tighter uppercase italic leading-none mb-4 md:mb-6">
                       {selectedItem.name}
                     </h3>
-                    <p className="text-white/40 text-lg md:text-xl font-light leading-relaxed">
+                    <p className="text-white/40 text-base md:text-xl font-light leading-relaxed">
                       {selectedItem.description}
                     </p>
                   </div>
 
-                  <div className="flex items-center mt-8 pt-10 border-t border-white/5">
+                  <div className="flex items-center mt-4 md:mt-8 pt-6 md:pt-10 border-t border-white/5">
                     <div className="flex flex-col">
                       <span className="text-[10px] font-black uppercase tracking-widest text-white/20 mb-2">Harga</span>
-                      <span className="text-white text-5xl font-display font-bold italic tracking-tighter">{selectedItem.price}</span>
+                      <span className="text-white text-4xl md:text-5xl font-display font-bold italic tracking-tighter">{selectedItem.price}</span>
                     </div>
                   </div>
                 </div>
@@ -643,7 +643,7 @@ export default function App() {
           >
             {[...Array(10)].map((_, i) => (
               <span key={i} className="text-brand-dark text-4xl md:text-6xl font-display font-black uppercase tracking-tighter italic">
-                NOL3 COFFEE <span className="text-white/40">•</span> BREWED TO PERFECTION <span className="text-white/40">•</span> SIDOARJO LOCAL PRIDE 
+                NOL3 COFFEE <span className="text-white/40">•</span> BREWED TO PERFECTION <span className="text-white/40">•</span> MAKASSAR LOCAL PRIDE 100%
               </span>
             ))}
           </motion.div>
