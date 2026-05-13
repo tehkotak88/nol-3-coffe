@@ -635,13 +635,13 @@ export default function App() {
         </section>
 
         {/* Scrolling Ticker */}
-        <div className="py-12 bg-accent overflow-hidden border-y-4 border-brand-dark relative z-20 -rotate-1 scale-[1.02]">
+        <div className="py-12 bg-accent overflow-hidden border-y-4 border-brand-dark relative z-20 -rotate-1 scale-[1.02] will-change-transform">
           <motion.div 
             animate={{ x: [0, -1000] }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             className="flex items-center gap-20 whitespace-nowrap"
           >
-            {[...Array(10)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <span key={i} className="text-brand-dark text-4xl md:text-6xl font-display font-black uppercase tracking-tighter italic">
                 NOL3 COFFEE <span className="text-white/40">•</span> BREWED TO PERFECTION <span className="text-white/40">•</span> MAKASSAR LOCAL PRIDE 100%
               </span>
@@ -678,48 +678,47 @@ export default function App() {
               </div>
             </div>
 
-            <motion.div 
-              layout
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12"
+            <div 
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-12"
             >
-              <AnimatePresence mode='popLayout'>
+              <AnimatePresence mode='wait'>
                 {filteredMenu.map((item, idx) => (
                   <motion.div
                     key={item.name}
-                    layout
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.6, delay: idx * 0.05 }}
-                    className="group cursor-pointer"
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4, delay: Math.min(idx * 0.03, 0.3) }}
+                    className="group cursor-pointer will-change-[transform,opacity]"
                     onClick={() => setSelectedItem(item)}
                   >
-                    <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden bg-brand-gray border border-white/5 group-hover:border-accent/40 transition-all duration-700 shadow-2xl">
+                    <div className="relative aspect-[4/5] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden bg-brand-gray border border-white/5 group-hover:border-accent/40 transition-all duration-500 shadow-2xl">
                       <img 
                         src={item.image} 
                         alt={item.name} 
-                        className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                        loading="lazy"
+                        className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90" />
                       
-                      <div className="absolute inset-x-0 bottom-0 p-10 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="mb-4">
-                           <span className="text-[10px] font-black uppercase tracking-widest text-accent mb-2 block">{item.category}</span>
-                           <h3 className="text-3xl font-display font-bold text-white tracking-tighter leading-tight">{item.name}</h3>
+                      <div className="absolute inset-x-0 bottom-0 p-8 md:p-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div className="mb-3 md:mb-4">
+                           <span className="text-[9px] font-black uppercase tracking-widest text-accent mb-2 block">{item.category}</span>
+                           <h3 className="text-2xl md:text-3xl font-display font-bold text-white tracking-tighter leading-tight">{item.name}</h3>
                         </div>
-                        <p className="text-white/40 text-xs font-serif italic mb-6 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
+                        <p className="text-white/40 text-[10px] md:text-xs font-serif italic mb-6 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           {item.description}
                         </p>
                         <div className="flex items-center justify-between">
-                           <span className="text-white text-2xl font-display font-bold italic tracking-tighter">{item.price}</span>
-                           <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-brand-dark -rotate-45 group-hover:rotate-0 transition-transform">
-                              <ChevronRight size={20} />
+                           <span className="text-white text-xl md:text-2xl font-display font-bold italic tracking-tighter">{item.price}</span>
+                           <div className="w-10 h-10 md:w-12 md:h-12 bg-accent rounded-full flex items-center justify-center text-brand-dark -rotate-45 group-hover:rotate-0 transition-transform">
+                              <ChevronRight size={18} />
                            </div>
                         </div>
                       </div>
                       
                       {item.category === 'signature' && (
-                        <div className="absolute top-8 left-8 bg-accent/90 backdrop-blur text-brand-dark px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-[0.2em] shadow-xl">
+                        <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-accent/90 backdrop-blur text-brand-dark px-3 py-1.5 md:px-4 md:py-2 rounded-xl text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] shadow-xl">
                           Specialty
                         </div>
                       )}
@@ -727,7 +726,7 @@ export default function App() {
                   </motion.div>
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </div>
           </div>
         </section>
 
