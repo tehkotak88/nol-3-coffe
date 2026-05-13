@@ -603,7 +603,7 @@ export default function App() {
             >
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full mb-10 shadow-lg">
                 <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                <span className="text-accent text-[9px] uppercase font-black tracking-[0.4em]">Sidoarjo Pride • Est. 2023</span>
+                <span className="text-accent text-[9px] uppercase font-black tracking-[0.4em]">Makassar Pride • Est. 2023</span>
               </div>
               
               <h1 className="text-white text-7xl md:text-[10rem] font-display font-bold leading-[0.85] tracking-tighter mb-12">
@@ -611,7 +611,7 @@ export default function App() {
               </h1>
               
               <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-16">
-                Tempat singgah sederhana di jantung Sidoarjo. Kopi pilihan untuk cerita yang tak terlupakan.
+                Tempat singgah sederhana di jantung Makassar. Kopi pilihan untuk cerita yang tak terlupakan.
               </p>
               
               <div className="flex flex-wrap items-center justify-center gap-8">
@@ -756,7 +756,7 @@ export default function App() {
                   NOL3 <span className="text-accent underline decoration-white/10 italic">LOKAL</span>.
                 </h2>
                 <p className="text-white/50 text-xl font-light leading-relaxed mb-12">
-                  Terletak di jantung Sidoarjo, Warkop Nol3 adalah rumah kedua bagi siapa saja. Dari obrolan santai hingga inspirasi besar, kami sediakan seduhan terbaik untukmu.
+                  Terletak di jantung Makassar, Warkop Nol3 adalah rumah kedua bagi siapa saja. Dari obrolan santai hingga inspirasi besar, kami sediakan seduhan terbaik untukmu.
                 </p>
                 
                 <div className="space-y-4 mb-16">
@@ -764,14 +764,14 @@ export default function App() {
                     <Clock className="text-accent shrink-0" size={32} />
                     <div>
                       <p className="text-[10px] uppercase font-black tracking-widest text-white/30 mb-1">Jam Buka</p>
-                      <p className="text-white font-bold text-lg">Setiap Hari 10:00 - 00:00 WIB</p>
+                      <p className="text-white font-bold text-lg">Buka Setiap Hari 24 Jam</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-6 p-8 bg-brand-dark/50 rounded-3xl border border-white/5">
                     <MapPin className="text-accent shrink-0" size={32} />
                     <div>
                       <p className="text-[10px] uppercase font-black tracking-widest text-white/30 mb-1">Lokasi</p>
-                      <p className="text-white font-bold text-lg">Jl. Pahlawan No.03, Sidoarjo</p>
+                      <p className="text-white font-bold text-lg">Jl. Anggrek Raya No.22, Paropo, Kec. Panakkukang, Kota Makassar, Sulawesi Selatan 90231</p>
                     </div>
                   </div>
                 </div>
@@ -848,7 +848,7 @@ export default function App() {
           </div>
           
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-white/20 text-[10px] font-mono">© 2024 WARKOP NOL3 SIDOARJO. ALL RIGHTS RESERVED.</p>
+            <p className="text-white/20 text-[10px] font-mono">© 2024 WARKOP NOL3 MAKASSAR. ALL RIGHTS RESERVED.</p>
             <div className="flex gap-10 text-white/20 text-[10px] font-mono uppercase tracking-[0.2em]">
                <a href="#" className="hover:text-accent">Terms</a>
                <a href="#" className="hover:text-accent">Privacy</a>
