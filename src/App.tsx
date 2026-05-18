@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from './lib/utils';
+import logoImg from '../logo.jpeg';
 
 interface MenuItem {
   name: string;
@@ -449,7 +450,7 @@ export default function App() {
         isScrolled ? "bg-brand-dark/90 backdrop-blur-xl border-b border-white/5 py-4" : "bg-transparent"
       )}>
         <a href="#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center font-black text-brand-dark text-xl group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(255,215,0,0.4)]">N</div>
+          <img src={logoImg} alt="Nol3 Coffee Logo" className="w-10 h-10 rounded-full object-cover group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(255,215,0,0.4)]" />
           <span className="font-display font-bold text-xl tracking-tighter text-white">
             NOL3<span className="text-accent italic">COFFEE</span>
           </span>
@@ -458,7 +459,7 @@ export default function App() {
         <div className="hidden md:flex items-center gap-10">
           {[
             { id: 'home', label: 'Beranda' },
-            { id: 'catalog', label: 'Katalog' },
+            { id: 'catalog', label: 'Menu' },
             { id: 'about', label: 'Tentang' }
           ].map((link) => (
             <a 
@@ -501,7 +502,7 @@ export default function App() {
             <div className="flex flex-col gap-6">
               {[
                 { id: 'home', label: 'Beranda' },
-                { id: 'catalog', label: 'Katalog' },
+                { id: 'catalog', label: 'Menu' },
                 { id: 'about', label: 'Tentang' }
               ].map((link, i) => (
                 <motion.a 
@@ -621,6 +622,12 @@ export default function App() {
                 >
                   Lihat Menu <ChevronRight size={16} />
                 </a>
+                <a 
+                  href="#warkop" 
+                  className="px-14 py-6 bg-white/5 border border-white/10 text-white rounded-full font-black uppercase tracking-[0.2em] text-[11px] hover:scale-105 hover:bg-white/10 transition-all flex items-center gap-3"
+                >
+                  Tentang Kami <ChevronRight size={16} />
+                </a>
               </div>
             </motion.div>
           </div>
@@ -648,6 +655,106 @@ export default function App() {
             ))}
           </motion.div>
         </div>
+
+        {/* Warkop Intro Section */}
+        <section id="warkop" className="py-32 px-6 bg-brand-dark relative z-10 overflow-hidden">
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[150px] rounded-full -ml-64 -mt-64 pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/3 blur-[100px] rounded-full -mr-32 -mb-32 pointer-events-none" />
+          <div className="max-w-7xl mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center mb-24"
+            >
+              <span className="text-accent font-black uppercase tracking-[0.5em] text-[10px] mb-6 block">Mengenal Kami</span>
+              <h2 className="text-6xl md:text-8xl font-display font-bold text-white tracking-tighter uppercase italic leading-none mb-8">
+                WARKOP <span className="text-accent underline decoration-white/10">NOL 3</span>
+              </h2>
+              <p className="text-white/50 text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                Bukan sekadar warung kopi biasa — ini adalah ruang hidup, tempat cerita lahir, dan semangat bertemu.
+              </p>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-3 gap-8 mb-20">
+              {[
+                {
+                  icon: '☕',
+                  title: 'Kopi Berkualitas',
+                  desc: 'Kami menyajikan kopi pilihan dengan biji terbaik yang diracik oleh barista berpengalaman. Setiap tegukan adalah karya seni tersendiri yang mencerminkan passion kami terhadap kopi.'
+                },
+                {
+                  icon: '🌙',
+                  title: 'Buka 24 Jam',
+                  desc: 'Nol 3 Coffee tidak pernah tidur. Kapanpun kamu butuh teman setia di malam buta atau pagi buta sekalipun, kami selalu ada dengan secangkir kopi hangat yang siap menemanimu.'
+                },
+                {
+                  icon: '🏠',
+                  title: 'Suasana Homey',
+                  desc: 'Desain interior yang nyaman dan hangat membuat kamu merasa seperti di rumah sendiri. Warkop Nol 3 adalah tempat di mana kamu bisa rileks, bekerja, atau sekadar mengobrol panjang lebar.'
+                }
+              ].map((card, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.15 }}
+                  className="bg-brand-gray border border-white/5 rounded-[2.5rem] p-10 hover:border-accent/30 transition-all duration-500 group hover:-translate-y-2"
+                >
+                  <div className="text-5xl mb-6">{card.icon}</div>
+                  <h3 className="text-white font-display font-bold text-2xl tracking-tighter uppercase italic mb-4 group-hover:text-accent transition-colors">{card.title}</h3>
+                  <p className="text-white/50 text-base font-light leading-relaxed">{card.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid md:grid-cols-2 gap-8 items-center bg-brand-gray border border-white/5 rounded-[3rem] overflow-hidden"
+            >
+              <div className="relative aspect-square md:aspect-auto md:h-[500px]">
+                <img
+                  src={logoImg}
+                  alt="Warkop Nol 3 Coffee"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-brand-gray/80 md:block hidden" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-gray to-transparent md:hidden" />
+              </div>
+              <div className="p-10 md:p-16">
+                <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-8">Est. 2023 · Makassar</span>
+                <h3 className="text-4xl md:text-5xl font-display font-bold text-white tracking-tighter uppercase italic leading-tight mb-6">
+                  Kisah di Balik <span className="text-accent">Secangkir Kopi</span>
+                </h3>
+                <p className="text-white/50 text-base md:text-lg font-light leading-relaxed mb-6">
+                  Warkop Nol 3 lahir dari mimpi sederhana: menciptakan ruang yang hangat dan autentik di tengah kesibukan Kota Makassar. Sejak 2023, kami telah menjadi rumah kedua bagi ratusan pelanggan setia.
+                </p>
+                <p className="text-white/50 text-base md:text-lg font-light leading-relaxed mb-10">
+                  Dengan menu yang beragam — mulai dari kopi spesial signature hingga makanan lezat — Nol 3 Coffee hadir untuk memenuhi setiap selera. Kami bangga menjadi bagian dari cerita harianmu, dari pagi hingga larut malam.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <div className="px-6 py-3 bg-accent/10 border border-accent/20 rounded-2xl text-center">
+                    <p className="text-accent font-black text-2xl font-display italic">50+</p>
+                    <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mt-1">Menu Pilihan</p>
+                  </div>
+                  <div className="px-6 py-3 bg-accent/10 border border-accent/20 rounded-2xl text-center">
+                    <p className="text-accent font-black text-2xl font-display italic">24/7</p>
+                    <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mt-1">Buka Terus</p>
+                  </div>
+                  <div className="px-6 py-3 bg-accent/10 border border-accent/20 rounded-2xl text-center">
+                    <p className="text-accent font-black text-2xl font-display italic">★ 4.9</p>
+                    <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mt-1">Rating Pelanggan</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Catalog Section */}
         <section id="catalog" className="py-40 px-6 bg-brand-dark relative z-10">
@@ -815,7 +922,7 @@ export default function App() {
           <div className="grid md:grid-cols-1 lg:grid-cols-4 gap-20 mb-32">
             <div className="lg:col-span-2">
               <a href="#" className="flex items-center gap-4 mb-10 group">
-                <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center font-black text-brand-dark text-2xl group-hover:rotate-12 transition-transform">N</div>
+                <img src={logoImg} alt="Nol3 Coffee Logo" className="w-14 h-14 rounded-full object-cover group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(255,215,0,0.3)]" />
                 <span className="font-display font-bold text-3xl tracking-tighter text-white uppercase italic">Nol3<span className="text-accent">Coffee</span></span>
               </a>
               <p className="text-white/40 text-xl max-w-md font-light leading-relaxed mb-10">
@@ -835,7 +942,7 @@ export default function App() {
                <ul className="space-y-6">
                   {[
                     { id: 'home', label: 'Beranda' },
-                    { id: 'catalog', label: 'Katalog' },
+                    { id: 'catalog', label: 'Menu' },
                     { id: 'about', label: 'Tentang' }
                   ].map(link => (
                     <li key={link.id}>

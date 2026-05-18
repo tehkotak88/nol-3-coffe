@@ -28,6 +28,24 @@ export default defineConfig(({mode}) => {
               next();
             }
           });
+          // Serve logo from root for dev favicon
+          server.middlewares.use('/logo.jpeg', (_req, res, next) => {
+            const logoPath = path.join(__dirname, 'logo.jpeg');
+            if (fs.existsSync(logoPath)) {
+              res.setHeader('Content-Type', 'image/jpeg');
+              res.end(fs.readFileSync(logoPath));
+            } else {
+              next();
+            }
+          });
+        },
+        // Copy logo to public output for favicon in production build
+        closeBundle() {
+          const src = path.join(__dirname, 'logo.jpeg');
+          const dest = path.join(__dirname, 'dist', 'logo.jpeg');
+          if (fs.existsSync(src)) {
+            fs.copyFileSync(src, dest);
+          }
         }
       }
     ],
